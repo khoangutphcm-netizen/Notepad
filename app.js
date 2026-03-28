@@ -13,9 +13,9 @@ const transporter = nodemailer.createTransport({
 });
 const app = express();
 app.use(cors({
-  origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+ origin: ["http://127.0.0.1:5500", "http://localhost:5500", "https://your-frontend-domain.com"],
+ methods: ["GET", "POST", "PUT", "DELETE"],
+ credentials: true
 }));
 app.options("*", cors());
 app.use(express.json());
@@ -149,6 +149,9 @@ app.put("/update-note/:id", (req, res) => {
   );
 });
 
+app.get("/", (req, res) => {
+ res.send("OK");
+});
 app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
 });
@@ -167,3 +170,4 @@ app.get("/activate/:token", (req, res) => {
     }
   );
 });
+
