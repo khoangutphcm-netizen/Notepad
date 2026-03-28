@@ -150,8 +150,9 @@ app.put("/update-note/:id", (req, res) => {
 });
 
 app.get("/", (req, res) => {
- res.send("OK");
+  res.send("OK");
 });
+
 app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
 });
